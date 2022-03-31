@@ -12,15 +12,15 @@ export class RequestService {
     return this.httpClient.get(url)
   };
 
-  post(url: string, data: string) {
+  post(url: string, data: object) {
     return this.httpClient.post(url, data);
   };
 
-  put(url: string, data: string) {
+  put(url: string, data: object) {
     return this.httpClient.put(url, data);
   };
 
-  delete(url: string, data: string) {
+  delete(url: string, data: object) {
     return this.httpClient.put(url, data);
   };
 }
