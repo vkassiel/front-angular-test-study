@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 
+import { RequestService } from './../request.service';
 @Component({
   selector: 'app-store',
   templateUrl: './store.component.html',
@@ -10,7 +11,7 @@ export class StoreComponent {
   objectKeys = Object.keys;
   plans: String[] = ['Saude Basic', 'Saude Pro', 'Saude Enterprise'];
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private RequestService: RequestService) { }
 
   proposal = this.formBuilder.group(
     {
@@ -22,6 +23,8 @@ export class StoreComponent {
   );
 
   sendData() {
-    console.log(this.proposal.value)
+    this.RequestService.post('http://localhost:5000/proposal', this.proposal.value).subscribe((response) => {
+      console.log('response', response);
+    });
   };
 }
