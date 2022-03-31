@@ -1,0 +1,22 @@
+<main>
+    <h1>Cadastro de beneficiário</h1>
+    <form [formGroup]="proposal" (submit)="sendData()">
+        <label for="cpf">CPF</label>
+        <input type="text" maxlength="11" formControlName="cpf">
+    
+        <label for="name">Nome</label>
+        <input type="text" maxlength="120" formControlName="name">
+    
+        <label for="email">E-mail</label>
+        <input type="email" formControlName="email">
+    
+        <label for="product">Produtos</label>
+        <select formControlName="product">
+            <option *ngFor="let plan of plans" value="{{plan}}">
+                {{ plan }}
+            </option>
+        </select>
+
+        <button>Cadastrar</button>
+    </form>
+</main>
